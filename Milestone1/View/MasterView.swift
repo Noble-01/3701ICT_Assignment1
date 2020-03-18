@@ -12,13 +12,13 @@ struct MasterView: View {
     /**
             the following code is used to create a naviagtion view that displays all the potato objects saved into an array
      */
-    ///links the struct potato so that objects can use its parameters within the array
-    var potatos: [Potato]
+    ///the list changes according to the array in the model
+    @ObservedObject var viewModel: ViewModel
     
     var body: some View {
         NavigationView{
        ///creates the list that utalises the arrau of potato information
-        List(potatos){potato in
+            List(viewModel.potatos){potato in
             ///creates a for loop to run through the array with the var potato
             NavigationLink(destination: DetailView(model: potato)){
                 Section{
@@ -42,14 +42,5 @@ struct MasterView: View {
                 }.navigationBarTitle(Text("Potatos"))
             }
         }
-    }
-}
-
-struct MasterView_Previews: PreviewProvider {
-    ///link the struct to the static view
-    ///creats the object with the following parameters
-    static var previews: some View {
-        MasterView(potatos: [Potato( name: "Kipfler", family: "Sweet Potato", weight: "20grams", scienceName: "Solanum tuberosum", nutrition: "manganese, potassium and vitamin C", image: "potato"),
-            Potato( name: "Vitelotte", family:"Starch Potato", weight: "300grams", scienceName: "Solanum Vitelotte", nutrition: "protien, potassium and vitamin C", image: "potato1")])
     }
 }

@@ -20,7 +20,7 @@ struct MasterView: View {
        ///creates the list that utalises the arrau of potato information
         List(potatos){potato in
             ///creates a for loop to run through the array with the var potato
-            NavigationLink(destination: ContentView(potato: potato)){
+            NavigationLink(destination: DetailView(model: potato)){
                 Section{
                     ///places the elements in a single line
                     HStack(){

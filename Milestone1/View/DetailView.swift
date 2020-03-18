@@ -8,29 +8,30 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct DetailView: View {
     /**
         the follwoing code is used to display the information about the potato objects when they are selcted from the MasterView
      */
-    //links the struct potato so that objects can use its parameters
-    var potato: Potato
+    ///links the class potato so that objects can use its parameters
+    ///keeps track of the potato object
+    @ObservedObject var model: Potato
     
     var body: some View {
         //formats all text and images in a vertical stack
         VStack(alignment: .center) {
             //display the name for the object on the screen
-            Text(potato.name)
+            Text(model.name)
                 .font(.title)
                 .fontWeight(.bold)
             
-            Text(potato.scienceName)
+            Text(model.scienceName)
                 .font(.subheadline)
                 .fontWeight(.light)
                 .italic()
                 .lineLimit(nil)
                 .padding(.bottom, 15.0)
             //display the image called "potato" in the Assets folder
-            Image(potato.image)
+            Image(model.image)
                 .resizable()
                 .padding(.vertical, 15.0)
                 .frame(width: 299.0, height: 300.0)
@@ -55,15 +56,15 @@ struct ContentView: View {
                 }
                 
                 VStack(alignment: .leading){
-                    Text(potato.family)
+                    Text(model.family)
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 10.0)
                         
-                    Text(potato.weight)
+                    Text(model.weight)
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 10.0)
                     
-                    Text(potato.nutrition)
+                    Text(model.nutrition)
                     .multilineTextAlignment(.center)
                 }
             }
@@ -72,10 +73,10 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct DetailView_Previews: PreviewProvider {
     ///link the struct to the static view
     ///creates the object with the following parameters
     static var previews: some View {
-        ContentView(potato: Potato( name: "Kipfler", family: "Sweet Potato", weight: "20grams", scienceName: "Solanum tuberosum", nutrition: "manganese, potassium and vitamin C", image: "potato"))
+        DetailView(model: Potato( name: "Kipfler", family: "Sweet Potato", weight: "20grams", scienceName: "Solanum tuberosum", nutrition: "manganese, potassium and vitamin C", image: "potato"))
     }
 }

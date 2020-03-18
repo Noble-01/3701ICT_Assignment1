@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class ViewModel: ObservableObject, Identifiable{
+    ///class is used to hold the array
+    ///by using @published we can look at the new array when a change is made to it
+    @Published var potatos: [Potato]
+    
+    init(potatos: [Potato]) {
+        self.potatos = potatos
+    }
+}

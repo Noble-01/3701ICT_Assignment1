@@ -68,6 +68,8 @@ struct DetailView: View {
                     .multilineTextAlignment(.center)
                 }
             }
+            Text("Notes")
+            TextField("Add a note", text: self.$model.note)
         }
         .padding(.bottom, 150.0)
     }

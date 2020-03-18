@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ContentView {
+struct ContentView : View {
     ///is viewd by the viewmodel for any changes done to the array
     @ObservedObject var viewModel:ViewModel
     

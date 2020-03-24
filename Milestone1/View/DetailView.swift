@@ -70,7 +70,8 @@ struct DetailView: View {
             }
             ///Added text and text field to HStack
             HStack(){
-                Text("Notes")
+                Text("Notes: ")
+                .fontWeight(.bold)
                 TextField("Add a note", text: self.$model.note)
             }
 

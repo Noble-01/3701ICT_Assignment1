@@ -39,7 +39,7 @@ struct MasterView: View {
                         }
                     }
                 ///Title of navigation
-                }.navigationBarTitle(Text("Potatos"))
+            }.navigationBarTitle(Text(self.viewModel.listTitle))
             }
         }
     }

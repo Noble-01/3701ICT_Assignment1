@@ -56,6 +56,8 @@ class Project1Tests: XCTestCase {
         XCTAssert((potato as Any)is [Potato])
         ///testing if array is not eqault to nil
         XCTAssertNotNil([potato])
+        ///testing if array has 1 object inside
+        XCTAssertEqual(potato.count, 1)
     }
     
     func testPerformanceExample() {

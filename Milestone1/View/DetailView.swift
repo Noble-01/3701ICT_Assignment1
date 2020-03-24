@@ -68,8 +68,12 @@ struct DetailView: View {
                     .multilineTextAlignment(.center)
                 }
             }
-            Text("Notes")
-            TextField("Add a note", text: self.$model.note)
+            ///Added text and text field to HStack
+            HStack(){
+                Text("Notes")
+                TextField("Add a note", text: self.$model.note)
+            }
+
         }
         .padding(.bottom, 150.0)
     }

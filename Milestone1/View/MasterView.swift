@@ -36,11 +36,13 @@ struct MasterView: View {
                     .fontWeight(.light)
                     .italic()
                     .frame(maxWidth: .infinity, alignment: .trailing)
-                        }
                     }
+                    }
+                
                 ///Title of navigation
-            }.navigationBarTitle(Text(self.viewModel.listTitle))
-            }.navigationBarItems(
+            }
+            .navigationBarTitle(Text(self.viewModel.listTitle))
+            .navigationBarItems(
                 leading: EditButton(),
                 trailing:HStack {
                     Button(action:{withAnimation{self.viewModel.addElement()}
@@ -49,6 +51,11 @@ struct MasterView: View {
                     }
                 }
             )
+            }
+            .onDelete(perform: deleteItems)
+        }
+        func deleteItems(at offsets: IndexSet){
+            viewModel.potatos.remove(atOffsets: offsets)
         }
     }
 }

@@ -40,14 +40,12 @@ struct MasterView: View {
                     }
                 ///Title of navigation
             }.navigationBarTitle(Text(self.viewModel.listTitle))
-            }.navigationBarItems(trailing:
-                HStack {
-                    Button("About") {
-                        print("About tapped!")
-                    }
-
-                    Button("Help") {
-                        print("Help tapped!")
+            }.navigationBarItems(
+                leading: EditButton(),
+                trailing:HStack {
+                    Button(action:{withAnimation{self.viewModel.addElement()}
+                    }){
+                        Image(systemName: "plus")
                     }
                 }
             )

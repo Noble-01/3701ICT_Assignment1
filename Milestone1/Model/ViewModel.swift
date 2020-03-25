@@ -19,4 +19,7 @@ class ViewModel: ObservableObject, Identifiable{
         self.potatos = potatos
         self.listTitle = "Potatos"
     }
+    func addElement(){
+        let person
+    }
 }

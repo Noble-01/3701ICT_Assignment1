@@ -17,6 +17,16 @@ struct MasterView: View {
     
     var body: some View {
         NavigationView{
+            MasterView(viewModel: viewModel)
+                .navigationBarItems(
+                leading: EditButton(),
+                trailing: Button(
+                    action:{
+                        withAnimation {self.viewModel.addElement()}
+                }){
+                    Image(systemName: "plus")
+                    }
+            )
        ///creates the list that utalises the arrau of potato information
             List(viewModel.potatos){potato in
             ///creates a for loop to run through the array with the var potato

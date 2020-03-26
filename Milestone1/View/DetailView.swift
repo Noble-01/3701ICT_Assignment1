@@ -20,16 +20,16 @@ struct DetailView: View {
         //formats all text and images in a vertical stack
         VStack(alignment: .center) {
             //display the name for the object on the screen
-            Text(model.name)
+            TextField( "<new>", text: $model.name)
                 .font(.title)
-                .fontWeight(.bold)
+                //.fontWeight(.bold)
             
-            Text(model.scienceName)
+            TextField("<new>", text: $model.scienceName)
                 .font(.subheadline)
-                .fontWeight(.light)
-                .italic()
+                //.fontWeight(.light)
+            //.italic()
                 .lineLimit(nil)
-                .padding(.bottom, 15.0)
+                //.padding(.bottom, 15.0)
             //display the image called "potato" in the Assets folder
             Image(model.image)
                 .resizable()

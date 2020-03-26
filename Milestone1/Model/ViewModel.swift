@@ -20,6 +20,7 @@ class ViewModel: ObservableObject, Identifiable{
         self.listTitle = "Potatos"
     }
     func addElement(){
-        
+        let potato = Potato(name: "<new>", family: "", weight: "", scienceName: "", nutrition: "", image: "")
+        potatos.append(potato)
     }
 }

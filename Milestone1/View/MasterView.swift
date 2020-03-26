@@ -22,20 +22,10 @@ struct MasterView: View {
             ForEach(viewModel.potatos) { potato in
                 NavigationLink(destination: DetailView(model: potato)){
                         ///places the elements in a single line
-                        HStack(){
-                        Image(potato.image).resizable()
-                        .padding(.vertical, 5.0)
-                        .frame(width: 80.0, height: 80.0)
-                        .shadow(radius: 10)
-                        .scaledToFit()
-                            
-                        Text(potato.name).fontWeight(.bold)
-                        Text(potato.scienceName)
-                        .font(.subheadline)
-                        .fontWeight(.light)
-                        .italic()
-                        .frame(maxWidth: .infinity, alignment: .trailing)
-                            }
+
+                        
+                        ExtractedView(potato: potato)
+
                 }
         }.onDelete(perform: deleteItems)
 }
@@ -43,5 +33,27 @@ struct MasterView: View {
 }
     func deleteItems(at offsets: IndexSet){
     viewModel.potatos.remove(atOffsets: offsets)
+    }
+}
+
+struct ExtractedView: View {
+    @ObservedObject var potato: Potato
+    var body: some View {
+        HStack(){
+        Image(potato.image).resizable()
+        .padding(.vertical, 5.0)
+        .frame(width: 80.0, height: 80.0)
+        .shadow(radius: 10)
+        .scaledToFit()
+            
+        Text(potato.name).fontWeight(.bold)
+            
+        
+        Text(potato.scienceName)
+        .font(.subheadline)
+        .fontWeight(.light)
+        .italic()
+        .frame(maxWidth: .infinity, alignment: .trailing)
+            }
     }
 }

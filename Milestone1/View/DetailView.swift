@@ -22,15 +22,12 @@ struct DetailView: View {
             //display the name for the object on the screen
             TextField( "<new>", text: $model.name)
                 .font(.title)
-                //.fontWeight(.bold)
+
             
             TextField("<new>", text: $model.scienceName)
                 .font(.subheadline)
-                //.fontWeight(.light)
-            //.italic()
                 .lineLimit(nil)
-                //.padding(.bottom, 15.0)
-            //display the image called "potato" in the Assets folder
+
             Image(model.image)
                 .resizable()
                 .padding(.vertical, 15.0)
@@ -56,16 +53,16 @@ struct DetailView: View {
                 }
                 
                 VStack(alignment: .leading){
-                    Text(model.family)
-                    .multilineTextAlignment(.center)
-                    .padding(.bottom, 10.0)
+                    TextField("<new>" ,text: $model.family)
+                    .multilineTextAlignment(.leading)
+
                         
-                    Text(model.weight)
-                    .multilineTextAlignment(.center)
-                    .padding(.bottom, 10.0)
+                    TextField("<new>", text: $model.weight)
+                    .multilineTextAlignment(.leading)
+
                     
-                    Text(model.nutrition)
-                    .multilineTextAlignment(.center)
+                    TextField("<new>", text: $model.nutrition)
+                    .multilineTextAlignment(.leading)
                 }
             }
             ///Added text and text field to HStack

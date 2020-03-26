@@ -12,18 +12,18 @@ class Potato : ObservableObject, Identifiable{
     ///id is given to identify the objects of potatos in the array
     var id = UUID()
     ///generic name for potato
-    var name:String
+    @Published var name:String
     ///scientific name for potato
-    var scienceName:String
+    @Published var scienceName:String
     ///type of family for potato
-    var family:String
+    @Published var family:String
     ///weight of the potato
-    var weight: String
+    @Published var weight: String
     ///nutrition values of potato
-    var nutrition:String
+    @Published var nutrition:String
     ///image name for potato in the assets folder
-    var image:String
-
+    @Published var image:String
+    
     @Published var note: String = ""
     
     ///initialize the attributes of the class

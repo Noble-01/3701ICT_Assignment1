@@ -16,11 +16,11 @@ class Potato : ObservableObject, Identifiable{
     ///scientific name for potato
     @Published var scienceName:String
     ///type of family for potato
-    @Published var family:String
+    var family:String
     ///weight of the potato
-    @Published var weight: String
+   var weight: String
     ///nutrition values of potato
-    @Published var nutrition:String
+    var nutrition:String
     ///image name for potato in the assets folder
     @Published var image:String
     

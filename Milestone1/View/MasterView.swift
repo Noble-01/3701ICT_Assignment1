@@ -27,13 +27,12 @@ struct MasterView: View {
                         ExtractedView(potato: potato)
 
                 }
-        }.onDelete(perform: deleteItems)
+            }.onDelete{indices in
+            indices.forEach {self.viewModel.deleteItems(index:$0)}
 }
 
 }
-    func deleteItems(at offsets: IndexSet){
-    viewModel.potatos.remove(atOffsets: offsets)
-    }
+
 }
 
 struct ExtractedView: View {
@@ -56,4 +55,5 @@ struct ExtractedView: View {
         .frame(maxWidth: .infinity, alignment: .trailing)
             }
     }
+}
 }

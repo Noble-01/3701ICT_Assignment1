@@ -23,4 +23,7 @@ class ViewModel: ObservableObject, Identifiable{
         let potato = Potato(name: "<new>", family: "", weight: "", scienceName: "", nutrition: "", image: "")
         potatos.append(potato)
     }
+    func deleteItems(index: Int){
+        potatos.remove(at: index)
+    }
 }

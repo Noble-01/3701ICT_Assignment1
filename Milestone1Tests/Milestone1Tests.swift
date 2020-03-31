@@ -13,57 +13,44 @@ class Project1Tests: XCTestCase {
      var potato: Potato?
     override func setUp() {
 
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        potato = Potato(name:"Kipfler", family:"Sweet Potato", weight:"20grams", scienceName: "Solanum tuberosum", nutrition: "manganese, potassium and vitamin C", image: "potato")
+        /// Put setup code here. This method is called before the invocation of each test method in the class.
+        ///create potato array with set properties
+        let potato = [Potato(name:"Kipfler", family:"Sweet Potato", weight:"20grams", scienceName: "Solanum tuberosum", nutrition: "manganese, potassium and vitamin C", image: "potato")]
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        /// Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-//functions used to test the struct and the values that are given to the variables disbaled on screen
-
-    //the struct test is broken down into individual test functions for each element on the phone
-    func testPotatoName(){
+    
+    ///function test all properties of potato model
+    func potatModelTest(){
         let potatoName = "Kipfler"
-
-        XCTAssert(potato?.name == potatoName)
-    }
-    func testPotatoWeight(){
         let potatoWeight = "20grams"
-
-        XCTAssert(potato?.weight == potatoWeight)
-    }
-    func testPotatoScienceName(){
         let potatoScienceName = "Solanum tuberosum"
-
-        XCTAssertEqual(potato?.scienceName,potatoScienceName)
-    }
-    func testPotatoNutrition(){
-        let potatoNutrition = "manganese, potassium and vitamin C"
-
-        XCTAssertEqual(potato?.nutrition,potatoNutrition)
-    }
-    func testFamily(){
         let potatoFamily = "Sweet Potato"
-
+        
+        ///XCTAssertEqual compares two non-optional values of the same type.
+        ///test name of potato
+        XCTAssertEqual(potato?.name,potatoName)
+        ///test weight of potato
+        XCTAssertEqual(potato?.weight,potatoWeight)
+        ///test scientific name of potato
+        XCTAssertEqual(potato?.scienceName,potatoScienceName)
+        ///test family name of the potato
         XCTAssertEqual(potato?.family,potatoFamily)
-    }
-
-    func testArray(){
-        ///created array for potato class
-        let potato: [Potato] = [Potato(name:"Kipfler", family:"Sweet Potato", weight:"20grams", scienceName: "Solanum tuberosum", nutrition: "manganese, potassium and vitamin C", image: "potato")]
         ///testing if array has anything inisde it
         XCTAssert((potato as Any)is [Potato])
         ///testing if array is not eqault to nil
         XCTAssertNotNil([potato])
         ///testing if array has 1 object inside
-        XCTAssertEqual(potato.count, 1)
+        XCTAssertEqual([potato].count, 1)
     }
     
+    
     func testPerformanceExample() {
-        // This is an example of a performance test case.
+        /// This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+            /// Put the code you want to measure the time of here.
         }
     }
 

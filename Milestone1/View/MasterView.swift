@@ -39,7 +39,7 @@ struct ExtractedView: View {
     @ObservedObject var potato: Potato
     var body: some View {
         HStack(){
-        Image(potato.image).resizable()
+        potato.getImage().resizable()
         .padding(.vertical, 5.0)
         .frame(width: 80.0, height: 80.0)
         .shadow(radius: 10)

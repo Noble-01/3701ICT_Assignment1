@@ -42,9 +42,10 @@ class Potato : ObservableObject, Identifiable{
         let imageData = try? Data(contentsOf: url),
         let uiImage = UIImage(data: imageData)
         else{
-            fatalError("can't download image")
+            self.uiImage = nil
+            return
         }
-        let image = Image(uiImage: uiImage)
+        self.uiImage = uiImage
     }
     func getImage () -> Image{
         if let uiImage = uiImage {

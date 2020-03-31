@@ -11,6 +11,7 @@ import Foundation
 class ViewModel: ObservableObject, Identifiable{
     ///navigation title link
     let listTitle: String
+    static var URLPlaceHolder: String = "URL of Image"
     ///class is used to hold the array
     ///by using @published we can look at the new array when a change is made to it
     @Published var potatos: [Potato]

@@ -15,7 +15,8 @@ struct DetailView: View {
     ///links the class potato so that objects can use its parameters
     ///keeps track of the potato object
     @ObservedObject var model: Potato
-    @State var url: String
+    @State var url: String = ""
+    
     var body: some View {
         //formats all text and images in a vertical stack
         VStack(alignment: .center) {
@@ -28,7 +29,7 @@ struct DetailView: View {
                 .font(.subheadline)
                 .lineLimit(nil)
 
-            Image(model.image)
+            model.getImage()
                 .resizable()
                 .padding(.vertical, 15.0)
                 .frame(width: 299.0, height: 300.0)
@@ -73,8 +74,10 @@ struct DetailView: View {
                 
                 Text("Image URL: ")
                 .fontWeight(.bold)
-                TextField(viewModel.imageURLPlaceholder, text: self.$url){
-                    self.model.updateImage(imageURL: self.url)}.frame{width: geometry.size.width / 2, alignment: .leading}
+                TextField(ViewModel.URLPlaceHolder, text: self.$url){
+                    self.model.updateImage(imageURL: self.url)
+                    
+                }//.frame(width: geometry.size.width / 2, alignment: .leading)
             }
 
         }
@@ -82,10 +85,4 @@ struct DetailView: View {
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
-    ///link the struct to the static view
-    ///creates the object with the following parameters
-    static var previews: some View {
-        DetailView(model: Potato( name: "Kipfler", family: "Sweet Potato", weight: "20grams", scienceName: "Solanum tuberosum", nutrition: "manganese, potassium and vitamin C", image: "potato"))
-    }
-}
+

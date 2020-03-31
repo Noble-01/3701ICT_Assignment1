@@ -15,7 +15,7 @@ struct DetailView: View {
     ///links the class potato so that objects can use its parameters
     ///keeps track of the potato object
     @ObservedObject var model: Potato
-    
+    @State var url: String
     var body: some View {
         //formats all text and images in a vertical stack
         VStack(alignment: .center) {
@@ -70,6 +70,10 @@ struct DetailView: View {
                 Text("Notes: ")
                 .fontWeight(.bold)
                 TextField("Add a note", text: self.$model.note)
+                
+                Text("Image URL: ")
+                .fontWeight(.bold)
+                TextField(viewModel.imageURLPlaceholder, text: self.$url){self.model.updateImage(imageURL: self.url)}.frame{width: geometry.size.width / 2, alignment: .leading}
             }
 
         }

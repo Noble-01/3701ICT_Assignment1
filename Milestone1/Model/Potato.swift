@@ -6,7 +6,7 @@
 //  Copyright © 2020 Zac Cripps. All rights reserved.
 //
 //the struct contains all the parameters that make for the objects in "Potato"
-import Foundation
+import SwiftUI
 class Potato : ObservableObject, Identifiable{
     ///A class of types whose instances hold the value of an entity with stable identity
     ///id is given to identify the objects of potatos in the array
@@ -24,6 +24,8 @@ class Potato : ObservableObject, Identifiable{
     ///image name for potato in the assets folder
     @Published var image:String
     
+    @Published var UIImage:UIImage
+    
     @Published var note: String = ""
     
     ///initialize the attributes of the class
@@ -35,4 +37,14 @@ class Potato : ObservableObject, Identifiable{
         self.nutrition = nutrition
         self.image = image
     }
+    func updateImage(imageURL: String){
+        guard let url = URL(string: imageURL),
+        let imageData = try? Data(contentsOf: url),
+        let uiImage = UIImage(data: imageData)
+        else{
+            fatalError("can't download image")
+        }
+        let image = Image(uiImage: uiImage)
+    }
+
 }

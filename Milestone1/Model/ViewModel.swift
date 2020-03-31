@@ -26,16 +26,6 @@ class ViewModel: ObservableObject, Identifiable{
     func deleteItems(index: Int){
         potatos.remove(at: index)
     }
-    func get_image(){
-        guard let url = URL(string: "https://en.wikipedia.org/wiki/Baked_potato#/media/File:BakedPotatoWithButter.jpg"),
-        let imageData = try? Data(contentsOf: url),
-        let uiImage = UIImage(data: imageData),
-        else{
-            fatalError("can't download image")
-        }
-
-        let image = Image(uiImage: uiImage)
-    }
 
 }
 

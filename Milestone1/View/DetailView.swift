@@ -73,7 +73,8 @@ struct DetailView: View {
                 
                 Text("Image URL: ")
                 .fontWeight(.bold)
-                TextField(viewModel.imageURLPlaceholder, text: self.$url){self.model.updateImage(imageURL: self.url)}.frame{width: geometry.size.width / 2, alignment: .leading}
+                TextField(viewModel.imageURLPlaceholder, text: self.$url){
+                    self.model.updateImage(imageURL: self.url)}.frame{width: geometry.size.width / 2, alignment: .leading}
             }
 
         }

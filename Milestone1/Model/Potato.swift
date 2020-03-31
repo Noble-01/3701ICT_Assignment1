@@ -24,7 +24,7 @@ class Potato : ObservableObject, Identifiable{
     ///image name for potato in the assets folder
     @Published var image:String
     
-    @Published var UIImage:UIImage
+    @Published var uiImage:UIImage?
     
     @Published var note: String = ""
     
@@ -45,6 +45,13 @@ class Potato : ObservableObject, Identifiable{
             fatalError("can't download image")
         }
         let image = Image(uiImage: uiImage)
+    }
+    func getImage () -> Image{
+        if let uiImage = uiImage {
+            return Image (uiImage: uiImage)
+        } else {
+            return Image(image)
+        }
     }
 
 }

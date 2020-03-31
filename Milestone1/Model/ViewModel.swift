@@ -26,7 +26,7 @@ class ViewModel: ObservableObject, Identifiable{
     func deleteItems(index: Int){
         potatos.remove(at: index)
     }
-
+    
 }
 
 

@@ -54,6 +54,9 @@ class Potato : ObservableObject, Identifiable{
         ///return var with image data
         self.uiImage = uiImage
     }
+    ///getter function that retrieves the image for the object
+    ///if a image has been downloaded via remote URL is will set the image to that
+    ///else return an image if there is one assigned to the object already
     func getterImage () -> Image{
         if let uiImage = uiImage {
             return Image (uiImage: uiImage)

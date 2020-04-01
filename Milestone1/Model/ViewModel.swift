@@ -13,9 +13,15 @@ class ViewModel: ObservableObject, Identifiable{
     ///navigation title link
     let listTitle: String
     
+    ///Place holder variables are used to replace hard coded text in the view files
     static var newElementTextPlaceHolder = "<new>"
-    static var URLPlaceHolder: String = "URL of Image"
-    static var familyPlaceHolder: String = "Family"
+    static var imageURLTextFieldPlaceHolder: String = "URL of Image"
+    static var familyPlaceHolder: String = "Family:"
+    static var weightPlaceHolder: String = "Weight:"
+    static var nutritionPlaceHolder: String = "Nutrition:"
+    static var notesPlaceHolder: String = "Notes:"
+    static var notesTextFieldPlaceHolder: String = "Add a note"
+    static var imageURLPlaceHolder: String = "Image URL:"
     ///class is used to hold the array
     ///by using @published we can look at the new array when a change is made to it
     @Published var potatos: [Potato]

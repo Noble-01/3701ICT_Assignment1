@@ -24,6 +24,7 @@ struct MasterView: View {
                 NavigationLink(destination: DetailView(model: potato)){
                         ExtractedView(potato: potato)
                     }
+                ///when an item is deleted send index position of item through fun deleteItems() as var index in the ViewModel file
                 }.onDelete{indices in
                     indices.forEach {self.viewModel.deleteItems(index:$0)
             }
@@ -43,9 +44,11 @@ struct MasterView: View {
                 .frame(width: 80.0, height: 80.0)
                 .shadow(radius: 10)
                 .scaledToFit()
-                    
+                
+                ///display name of potato
                 Text(potato.name).fontWeight(.bold)
                 
+                ///display scientific name of potato
                 Text(potato.scienceName)
                 .font(.subheadline)
                 .fontWeight(.light)

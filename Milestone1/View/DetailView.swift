@@ -26,11 +26,11 @@ struct DetailView: View {
             TextField(ViewModel.newElementTextPlaceHolder, text: $model.name)
                 .font(.title)
 
-            
+            ///display the scientific name of potato
             TextField(ViewModel.newElementTextPlaceHolder, text: $model.scienceName)
                 .font(.subheadline)
                 .lineLimit(nil)
-
+            ///retrieve image from getter func
             model.getterImage()
                 .resizable()
                 .padding(.vertical, 15.0)
@@ -42,41 +42,48 @@ struct DetailView: View {
             HStack(alignment: .center) {
                 ///display the following elements horizontally
                 VStack(alignment: .trailing){
-                    Text("Family:").fontWeight(.bold).multilineTextAlignment(.center)
+                    ///display text "family:"
+                    Text(ViewModel.familyPlaceHolder).fontWeight(.bold).multilineTextAlignment(.center)
                         .padding(.bottom, 10.0)
-                    
-                    Text("Weight:")
+                    ///display text "weight:"
+                    Text(ViewModel.weightPlaceHolder)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 10.0)
-                
-                    Text("Nutrition: ")
+                    ///display text "nutrition:"
+                    Text(ViewModel.nutritionPlaceHolder)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                 }
                 
                 VStack(alignment: .leading){
+                    ///display default text "<new>" or display the family of potato if there is a string in the object property
                     TextField(ViewModel.newElementTextPlaceHolder,text: $model.family)
                     .multilineTextAlignment(.leading)
 
-                        
+                    ///display default text "<new>" or display the weight of potato if there is a string in the object property
                     TextField(ViewModel.newElementTextPlaceHolder, text: $model.weight)
                     .multilineTextAlignment(.leading)
 
-                    
+                    ///display default text "<new>" or display the nutrition of potato if there is a string in the object property
                     TextField(ViewModel.newElementTextPlaceHolder, text: $model.nutrition)
                     .multilineTextAlignment(.leading)
                 }
             }
             ///Added text and text field to HStack
             HStack(){
-                Text("Notes: ")
+                ///display text "Notes:"
+                Text(ViewModel.notesPlaceHolder)
                 .fontWeight(.bold)
-                TextField("Add a note", text: self.$model.note)
+                ///display default text "Add a note" or display the notes of potato if there is a string in the object property
+                TextField(ViewModel.notesTextFieldPlaceHolder, text: self.$model.note)
                 
-                Text("Image URL: ")
+                ///display text "Image URL"
+                Text(ViewModel.imageURLPlaceHolder)
                 .fontWeight(.bold)
-                TextField(ViewModel.URLPlaceHolder, text: self.$url){
+                ///display default text "URL of image" or display the url of potato if there is a string in the object property
+                TextField(ViewModel.imageURLTextFieldPlaceHolder, text: self.$url){
+                    ///send url string as a parameter for func updateImage()
                     self.model.updateImage(imageURL: self.url)
                 }
             }

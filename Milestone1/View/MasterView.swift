@@ -20,40 +20,38 @@ struct MasterView: View {
         List{
             ///creates a for loop to run through the array with the var potato
             ForEach(viewModel.potatos) { potato in
+                ///links the items in the list to the detailView for the potato object selected
                 NavigationLink(destination: DetailView(model: potato)){
-                        ///places the elements in a single line
-
-                        
                         ExtractedView(potato: potato)
-
-                }
-            }.onDelete{indices in
-            indices.forEach {self.viewModel.deleteItems(index:$0)}
-}
-
-}
-
-}
-
-struct ExtractedView: View {
-    @ObservedObject var potato: Potato
-    var body: some View {
-        HStack(){
-        potato.getImage().resizable()
-        .padding(.vertical, 5.0)
-        .frame(width: 80.0, height: 80.0)
-        .shadow(radius: 10)
-        .scaledToFit()
-            
-        Text(potato.name).fontWeight(.bold)
-            
-        
-        Text(potato.scienceName)
-        .font(.subheadline)
-        .fontWeight(.light)
-        .italic()
-        .frame(maxWidth: .infinity, alignment: .trailing)
+                    }
+                }.onDelete{indices in
+                    indices.forEach {self.viewModel.deleteItems(index:$0)
             }
+        }
     }
 }
+    ///separate view for the contents in the list
+    ///allows fot the objects to be observed and therefore show changes to the items
+    struct ExtractedView: View {
+        ///@ObservedObject:  property wrapper type that subscribes to an observable object and invalidates a view whenever the observable object changes.
+        @ObservedObject var potato: Potato
+        var body: some View {
+            HStack(){
+                ///calls image from the func "getterImage" for the potato object
+                potato.getterImage().resizable()
+                .padding(.vertical, 5.0)
+                .frame(width: 80.0, height: 80.0)
+                .shadow(radius: 10)
+                .scaledToFit()
+                    
+                Text(potato.name).fontWeight(.bold)
+                
+                Text(potato.scienceName)
+                .font(.subheadline)
+                .fontWeight(.light)
+                .italic()
+                .frame(maxWidth: .infinity, alignment: .trailing)
+            }
+        }
+    }
 }

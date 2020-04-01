@@ -12,8 +12,10 @@ import Foundation
 class ViewModel: ObservableObject, Identifiable{
     ///navigation title link
     let listTitle: String
-
+    
+    static var newElementTextPlaceHolder = "<new>"
     static var URLPlaceHolder: String = "URL of Image"
+    static var familyPlaceHolder: String = "Family"
     ///class is used to hold the array
     ///by using @published we can look at the new array when a change is made to it
     @Published var potatos: [Potato]
@@ -25,7 +27,7 @@ class ViewModel: ObservableObject, Identifiable{
     ///func creates new object using the potato model
     ///-output: append new object to potato array "potatos"
     func addElement(){
-        let potato = Potato(name: "<new>", family: "", weight: "", scienceName: "", nutrition: "", image: "")
+        let potato = Potato(name: "\(ViewModel.newElementTextPlaceHolder)", family: "", weight: "", scienceName: "", nutrition: "", image: "")
         potatos.append(potato)
     }
     ///func deletes item from potato array at index int

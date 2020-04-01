@@ -23,15 +23,15 @@ struct DetailView: View {
         ///formats all text and images in a vertical stack
         VStack(alignment: .center) {
             ///display the name for the object on the screen
-            TextField( "<new>", text: $model.name)
+            TextField(ViewModel.newElementTextPlaceHolder, text: $model.name)
                 .font(.title)
 
             
-            TextField("<new>", text: $model.scienceName)
+            TextField(ViewModel.newElementTextPlaceHolder, text: $model.scienceName)
                 .font(.subheadline)
                 .lineLimit(nil)
 
-            model.getImage()
+            model.getterImage()
                 .resizable()
                 .padding(.vertical, 15.0)
                 .frame(width: 299.0, height: 300.0)
@@ -56,15 +56,15 @@ struct DetailView: View {
                 }
                 
                 VStack(alignment: .leading){
-                    TextField("<new>" ,text: $model.family)
+                    TextField(ViewModel.newElementTextPlaceHolder,text: $model.family)
                     .multilineTextAlignment(.leading)
 
                         
-                    TextField("<new>", text: $model.weight)
+                    TextField(ViewModel.newElementTextPlaceHolder, text: $model.weight)
                     .multilineTextAlignment(.leading)
 
                     
-                    TextField("<new>", text: $model.nutrition)
+                    TextField(ViewModel.newElementTextPlaceHolder, text: $model.nutrition)
                     .multilineTextAlignment(.leading)
                 }
             }

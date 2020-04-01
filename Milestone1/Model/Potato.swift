@@ -25,7 +25,7 @@ class Potato : ObservableObject, Identifiable{
     @Published var image:String
     
     @Published var uiImage:UIImage?
-    
+    ///string for textfield car note
     @Published var note: String = ""
     
     ///initialize the attributes of the class

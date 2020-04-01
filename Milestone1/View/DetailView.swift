@@ -12,15 +12,17 @@ struct DetailView: View {
     /**
         the follwoing code is used to display the information about the potato objects when they are selcted from the MasterView
      */
+    ///A property wrapper type that subscribes to an observable object and invalidates a view whenever the observable object changes.
     ///links the class potato so that objects can use its parameters
-    ///keeps track of the potato object
     @ObservedObject var model: Potato
+    ///A property wrapper type that can read and write a value managed by SwiftUI.
+    ///used to set the inital state of the url string
     @State var url: String = ""
     
     var body: some View {
-        //formats all text and images in a vertical stack
+        ///formats all text and images in a vertical stack
         VStack(alignment: .center) {
-            //display the name for the object on the screen
+            ///display the name for the object on the screen
             TextField( "<new>", text: $model.name)
                 .font(.title)
 
@@ -38,7 +40,7 @@ struct DetailView: View {
                 .scaledToFit()
         
             HStack(alignment: .center) {
-                //display the following elements horizontally
+                ///display the following elements horizontally
                 VStack(alignment: .trailing){
                     Text("Family:").fontWeight(.bold).multilineTextAlignment(.center)
                         .padding(.bottom, 10.0)
@@ -76,8 +78,7 @@ struct DetailView: View {
                 .fontWeight(.bold)
                 TextField(ViewModel.URLPlaceHolder, text: self.$url){
                     self.model.updateImage(imageURL: self.url)
-                    
-                }//.frame(width: geometry.size.width / 2, alignment: .leading)
+                }
             }
 
         }

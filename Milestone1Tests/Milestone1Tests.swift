@@ -23,7 +23,7 @@ class Project1Tests: XCTestCase {
     }
     
     ///function test all properties of potato model
-    func potatModelTest(){
+    func testPotatModel(){
         let potatoName = "Kipfler"
         let potatoWeight = "20grams"
         let potatoScienceName = "Solanum tuberosum"
@@ -45,6 +45,12 @@ class Project1Tests: XCTestCase {
         ///testing if array has 1 object inside
         XCTAssertEqual([potato].count, 1)
     }
+    func testUpdateImage(){
+        let uiImage = potato?.updateImage(imageURL:"https://i.redd.it/qi0r0pdbsgs31.jpg")
+        XCTAssert((uiImage as Any)is UIImage)
+        
+    }
+    
     
     
     func testPerformanceExample() {

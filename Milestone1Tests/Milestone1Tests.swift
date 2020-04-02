@@ -38,6 +38,7 @@ class Project1Tests: XCTestCase {
     
     ///function test all properties of potato model
     func testPotatModel(){
+        ///Assign test varaibles to assert 
         let potatoName = "Kipfler"
         let potatoWeight = "20grams"
         let potatoScienceName = "Solanum tuberosum"

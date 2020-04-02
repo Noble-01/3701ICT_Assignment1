@@ -20,6 +20,7 @@ struct DetailView: View {
     @State var url: String = ""
     
     var body: some View {
+        
         ///formats all text and images in a vertical stack
         VStack(alignment: .center) {
             ///display the name for the object on the screen
@@ -43,54 +44,71 @@ struct DetailView: View {
                 ///display the following elements horizontally
                 VStack(alignment: .trailing){
                     ///display text "family:"
-                    Text(ViewModel.familyPlaceHolder).fontWeight(.bold).multilineTextAlignment(.center)
-                        .padding(.bottom, 10.0)
+                    Text(ViewModel.familyPlaceHolder)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                    .frame(maxHeight: .infinity)
+                    
                     ///display text "weight:"
                     Text(ViewModel.weightPlaceHolder)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
-                    .padding(.bottom, 10.0)
+                    .frame(maxHeight: .infinity)
+                    
                     ///display text "nutrition:"
                     Text(ViewModel.nutritionPlaceHolder)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
+                    .frame(maxHeight: .infinity)
+                    ///display text "Image URL"
+                    Text(ViewModel.imageURLPlaceHolder)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                    .frame(maxHeight: .infinity)
+                    
+                    ///display text "Notes:"
+                    Text(ViewModel.notesPlaceHolder)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                    .frame(maxHeight: .infinity)
+
                 }
                 
                 VStack(alignment: .leading){
                     ///display default text "<new>" or display the family of potato if there is a string in the object property
                     TextField(ViewModel.newElementTextPlaceHolder,text: $model.family)
                     .multilineTextAlignment(.leading)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
 
                     ///display default text "<new>" or display the weight of potato if there is a string in the object property
                     TextField(ViewModel.newElementTextPlaceHolder, text: $model.weight)
                     .multilineTextAlignment(.leading)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
 
                     ///display default text "<new>" or display the nutrition of potato if there is a string in the object property
                     TextField(ViewModel.newElementTextPlaceHolder, text: $model.nutrition)
                     .multilineTextAlignment(.leading)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    ///display default text "URL of image" or display the url of potato if there is a string in the object property
+                    TextField(ViewModel.imageURLTextFieldPlaceHolder, text: self.$url)
+                    {
+                        ///send url string as a parameter for func updateImage()
+                        self.model.updateImage(imageURL: self.url)
+                        
+                    }.textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    ///display default text "Add a note" or display the notes of potato if there is a string in the object property
+                    TextField(ViewModel.notesTextFieldPlaceHolder, text: self.$model.note)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+
                 }
-            }
-            ///Added text and text field to HStack
-            HStack(){
-                ///display text "Notes:"
-                Text(ViewModel.notesPlaceHolder)
-                .fontWeight(.bold)
-                ///display default text "Add a note" or display the notes of potato if there is a string in the object property
-                TextField(ViewModel.notesTextFieldPlaceHolder, text: self.$model.note)
-                
-                ///display text "Image URL"
-                Text(ViewModel.imageURLPlaceHolder)
-                .fontWeight(.bold)
-                ///display default text "URL of image" or display the url of potato if there is a string in the object property
-                TextField(ViewModel.imageURLTextFieldPlaceHolder, text: self.$url){
-                    ///send url string as a parameter for func updateImage()
-                    self.model.updateImage(imageURL: self.url)
-                }
-            }
+            } .padding(.horizontal)
+             .fixedSize(horizontal: false, vertical: true)
 
         }
         .padding(.bottom, 150.0)
     }
 }
-
 

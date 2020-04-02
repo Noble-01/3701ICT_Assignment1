@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import SwiftUI
 @testable import Milestone1
 
 class Project1Tests: XCTestCase {
@@ -59,7 +60,7 @@ class Project1Tests: XCTestCase {
         XCTAssertEqual([potato].count, 1)
         
         potato?.updateImage(imageURL:"https://i.redd.it/qi0r0pdbsgs31.jpg")
-         XCTAssert((potato?.getterImage as Any)is UIImage)
+         XCTAssert((potato?.getterImage() as Any)is Image)
         
         
     }

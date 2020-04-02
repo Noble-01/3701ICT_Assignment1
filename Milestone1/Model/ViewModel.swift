@@ -36,7 +36,7 @@ class ViewModel: ObservableObject, Identifiable{
     }
     ///func deletes item from potato array at index int
     ///-Parameters:
-    ///-one:  int to specify location of item in array delete from
+    ///-one:  int to specify location of item in array to delete
     func deleteItems(index: Int){
         potatos.remove(at: index)
     }

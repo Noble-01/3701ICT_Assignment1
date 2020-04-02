@@ -40,7 +40,8 @@ class Potato : ObservableObject, Identifiable{
         self.image = image
     }
     ///function is used to update the  uiImage variable and assign a image to the prarameter.
-    ///Parameters_one: String  contains the url for the location of the image
+    ///-Parameters
+    ///-one: String  contains the url for the location of the image
     func updateImage(imageURL: String){
         ///guard unrwaps the variable so it the program doesn't throw a fatal error
         guard let url = URL(string: imageURL),
@@ -48,6 +49,7 @@ class Potato : ObservableObject, Identifiable{
         let uiImage = UIImage(data: imageData)
         else{
             ///If no image is retrieved from the url return nil for the var
+            ///essentially not present anything
             self.uiImage = nil
             return
         }
@@ -55,7 +57,7 @@ class Potato : ObservableObject, Identifiable{
         self.uiImage = uiImage
     }
     ///getter function that retrieves the image for the object
-    ///if a image has been downloaded via remote URL is will set the image to that
+    ///if a UIImage has been downloaded via remote URL it will set the UIImage porperty for the object to that downloaded UIImage
     ///else return an image if there is one assigned to the object already
     func getterImage () -> Image{
         if let uiImage = uiImage {

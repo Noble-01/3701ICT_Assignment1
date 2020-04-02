@@ -10,12 +10,25 @@ import XCTest
 @testable import Milestone1
 
 class Project1Tests: XCTestCase {
-     var potato: Potato?
+    var potato: Potato?
+    
+    var potatos: [Potato] = []
+    
+    var viewModel: ViewModel?
+    
     override func setUp() {
 
         /// Put setup code here. This method is called before the invocation of each test method in the class.
         ///create potato array with set properties
-        let potato = [Potato(name:"Kipfler", family:"Sweet Potato", weight:"20grams", scienceName: "Solanum tuberosum", nutrition: "manganese, potassium and vitamin C", image: "potato")]
+        potato = Potato(name:"Kipfler", family:"Sweet Potato", weight:"20grams", scienceName: "Solanum tuberosum", nutrition: "manganese, potassium and vitamin C", image: "potato")
+        
+        guard let potato = potato else {
+            return
+        }
+        
+        potatos = [potato]
+        
+        viewModel = ViewModel(potatos: potatos)
     }
 
     override func tearDown() {
@@ -39,18 +52,24 @@ class Project1Tests: XCTestCase {
         ///test family name of the potato
         XCTAssertEqual(potato?.family,potatoFamily)
         ///testing if array has anything inisde it
-        XCTAssert((potato as Any)is [Potato])
+        XCTAssert((potato as Any)is Potato)
         ///testing if array is not eqault to nil
         XCTAssertNotNil([potato])
         ///testing if array has 1 object inside
         XCTAssertEqual([potato].count, 1)
-    }
-    func testUpdateImage(){
-        let uiImage = potato?.updateImage(imageURL:"https://i.redd.it/qi0r0pdbsgs31.jpg")
-        XCTAssert((uiImage as Any)is UIImage)
+        
+        potato?.updateImage(imageURL:"https://i.redd.it/qi0r0pdbsgs31.jpg")
+         XCTAssert((potato?.getterImage as Any)is UIImage)
+        
         
     }
-    
+    func testViewModel(){
+        viewModel?.addElement()
+        XCTAssertEqual(viewModel?.potatos.count, 2)
+        
+        viewModel?.deleteItems(index: 0)
+        XCTAssertEqual(viewModel?.potatos.count, 1)
+    }
     
     
     func testPerformanceExample() {

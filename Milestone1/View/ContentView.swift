@@ -19,7 +19,7 @@ struct ContentView : View {
                 NavigationView {
                     ///shows the MasterView which then utalizes the ViewModel file
                     MasterView(viewModel: viewModel)
-                    .navigationBarTitle(Text(self.viewModel.listTitle))
+                    .navigationBarTitle(Text(ViewModel.listTitle))
                     ///Configures the navigation bar items for the view.
                     .navigationBarItems(
                         leading: EditButton(),

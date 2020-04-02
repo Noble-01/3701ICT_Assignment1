@@ -10,8 +10,6 @@ import Foundation
 ///@Identifiable: A class of types whose instances hold the value of an entity with stable identity.
 
 class ViewModel: ObservableObject, Identifiable{
-    ///navigation title link
-    let listTitle: String
     
     ///Place holder variables are used to replace hard coded text in the view files
     static var newElementTextPlaceHolder = "<new>"
@@ -22,13 +20,13 @@ class ViewModel: ObservableObject, Identifiable{
     static var notesPlaceHolder: String = "Notes:"
     static var notesTextFieldPlaceHolder: String = "Add a note"
     static var imageURLPlaceHolder: String = "Image URL:"
+    static var listTitle: String = "Potatos"
     ///class is used to hold the array
     ///by using @published we can look at the new array when a change is made to it
     @Published var potatos: [Potato]
     /// Initializes `self` with default strategies.
-    init(potatos: [Potato], listTitle: String) {
+    init(potatos: [Potato]) {
         self.potatos = potatos
-        self.listTitle = "Potatos"
     }
     ///func creates new object using the potato model
     ///-output: append new object to potato array "potatos"

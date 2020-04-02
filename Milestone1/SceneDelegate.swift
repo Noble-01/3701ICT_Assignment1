@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     //this information is exclusivley used for the simulation
     let viewModel = ViewModel(potatos: [Potato(name: "Kipfler", family:"Sweet Potato", weight: "20grams", scienceName: "Solanum tuberosum", nutrition: "manganese, potassium and vitamin C", image: "potato"),
         Potato( name: "Vitelotte", family:"Starch Potato", weight: "300grams", scienceName: "Solanum Vitelotte", nutrition: "protien, potassium and vitamin C", image: "potato1"),
-        Potato(name: "Laura", family:"Cultivar Potato", weight: "150 grams", scienceName: "Laura tuberosum", nutrition: " potassium and vitamin C", image: "potato2")],listTitle: "Potatos")
+        Potato(name: "Laura", family:"Cultivar Potato", weight: "150 grams", scienceName: "Laura tuberosum", nutrition: " potassium and vitamin C", image: "potato2")])
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

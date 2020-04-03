@@ -28,15 +28,18 @@ class ViewModel: ObservableObject, Identifiable{
     init(potatos: [Potato]) {
         self.potatos = potatos
     }
-    ///func creates new object using the potato model
-    ///-output: append new object to potato array "potatos"
+    /**
+    func creates new object using the potato model
+    append new object to potato array "potatos"
+    */
     func addElement(){
         let potato = Potato(name: "\(ViewModel.newElementTextPlaceHolder)", family: "", weight: "", scienceName: "", nutrition: "", image: "")
         potatos.append(potato)
     }
-    ///func deletes item from potato array at index int
-    ///-Parameters:
-    ///-one:  int to specify location of item in array to delete
+    /**
+    func deletes item from potato array at index int
+     - parameter index:   int to specify location of item in array to delete
+    */
     func deleteItems(index: Int){
         potatos.remove(at: index)
     }

@@ -47,20 +47,28 @@ class Project1Tests: XCTestCase {
     ///function tests all properties and functions of the potato model
     func testPotatModel(){
         ///Assign test varaibles to assert
+        ///variable to test potato name
         let potatoName = "Kipfler"
+        ///variable to test potato weight
         let potatoWeight = "20grams"
+        ///variable to test potato scientific name
         let potatoScienceName = "Solanum tuberosum"
+        ///variable to test potato family name
         let potatoFamily = "Sweet Potato"
+        ///variable to test potato image
+        let potatoImage = "potato"
         
         ///XCTAssertEqual compares two non-optional values of the same type.
-        ///test name of potato
+        ///test name of potatoare the same
         XCTAssertEqual(potato?.name,potatoName)
-        ///test weight of potato
+        ///test weight of potato are the same
         XCTAssertEqual(potato?.weight,potatoWeight)
-        ///test scientific name of potato
+        ///test scientific name of potato are the same
         XCTAssertEqual(potato?.scienceName,potatoScienceName)
-        ///test family name of the potato
+        ///test family name of the potato are the same
         XCTAssertEqual(potato?.family,potatoFamily)
+        ///test image of the potato are the same
+        XCTAssertEqual(potato?.image, potatoImage)
         ///testing if array has anything inisde it
         XCTAssert((potato as Any)is Potato)
         ///testing if array is not eqault to nil
@@ -72,9 +80,16 @@ class Project1Tests: XCTestCase {
         potato?.updateImage(imageURL:"https://i.redd.it/qi0r0pdbsgs31.jpg")
         ///test returned image is of type Image using the getter function called getterImage()
          XCTAssert((potato?.getterImage() as Any)is Image)
+        
+        ///test if getter function works with uiImage as Nil
+        XCTAssertNotNil(potato?.getterImage())
     }
     ///function test all functions that are in the ViewModel
     func testViewModel(){
+        
+        ///testing if ViewModel exists or contents
+        XCTAssertNotNil(viewModel)
+        
         ///execute addElement func which will a new object to the potato array
         viewModel?.addElement()
         ///test if the total number of objects in array is now eqaul to two

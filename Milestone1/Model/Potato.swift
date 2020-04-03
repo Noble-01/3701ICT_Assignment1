@@ -11,7 +11,7 @@ class Potato : ObservableObject, Identifiable{
     /**
      A class of types whose instances hold the value of an entity with stable identity
      1. id is given to identify the objects of potatos in the array
-        */
+    */
     var id = UUID()
     ///generic name for potato
     @Published var name:String
@@ -70,8 +70,11 @@ class Potato : ObservableObject, Identifiable{
         let imageData = try? Data(contentsOf: url),
         let uiImage = UIImage(data: imageData)
         else{
-            ///If no image is retrieved from the url return nil for the var
-            ///essentially not present anything
+            /**
+            If no image is retrieved from the url return nil for the var.
+            essentially not present anything and in this assignment reverting back to the default image of object.
+             if the self.uiImage = nil is commented out or deleted the object will only revert to the previous image instead of default
+            */
             self.uiImage = nil
             return
         }

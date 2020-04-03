@@ -36,7 +36,7 @@ class Potato : ObservableObject, Identifiable{
     @Published var note: String = ""
     
     /**
-     initializße the attributes of the class
+     initialize the attributes of the class
     - parameter name: The common name of the potato
     - parameter family: The family of the potato
     - parameter weight: Average weight of potato

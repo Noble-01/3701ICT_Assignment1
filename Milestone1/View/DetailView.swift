@@ -12,8 +12,7 @@ struct DetailView: View {
     /**
         the follwoing code is used to display the information about the potato objects when they are selcted from the MasterView
      */
-    ///A property wrapper type that subscribes to an observable object and invalidates a view whenever the observable object changes.
-    ///links the class potato so that objects can use its parameters
+    ///@ObservedObject is a property wrapper type that subscribes to an observable object and invalidates a view whenever the observable object changes. links the class potato so that objects can use its parameters
     @ObservedObject var model: Potato
     ///A property wrapper type that can read and write a value managed by SwiftUI.
     ///used to set the inital state of the url string
@@ -26,11 +25,20 @@ struct DetailView: View {
             ///display the name for the object on the screen
             TextField(ViewModel.newElementTextPlaceHolder, text: $model.name)
                 .font(.title)
-
-            ///display the scientific name of potato
-            TextField(ViewModel.newElementTextPlaceHolder, text: $model.scienceName)
+            HStack{
+                ///display text "nutrition:"
+                Text(ViewModel.scientificPlaceHolder)
                 .font(.subheadline)
                 .lineLimit(nil)
+                .multilineTextAlignment(.center)
+                .frame(maxHeight: .infinity)
+                
+                ///display the scientific name of potato
+                TextField(ViewModel.newElementTextPlaceHolder, text: $model.scienceName)
+                    .font(.subheadline)
+                    .lineLimit(nil)
+            }
+
             ///retrieve image from getter func
             model.getterImage()
                 .resizable()

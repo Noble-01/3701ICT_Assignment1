@@ -80,9 +80,10 @@ class Project1Tests: XCTestCase {
         ///test if the total number of objects in array is now eqaul to two
         XCTAssertEqual(viewModel?.potatos.count, 2)
         
-        ///execute deleteItems array which deletes an object from the potato array
-        ///-Parameter:
-        ///-one: index position of object to delete from array as type int
+        /**
+         execute deleteItems array which deletes an object from the potato array
+        pass parameter index position of object to delete from array as type int
+         */
         viewModel?.deleteItems(index: 0)
         ///test if the total number of objects in array is now eqaul to one after deleting object using the deleteItems func
         XCTAssertEqual(viewModel?.potatos.count, 1)

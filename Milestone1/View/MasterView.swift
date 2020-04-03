@@ -22,7 +22,7 @@ struct MasterView: View {
             ForEach(viewModel.potatos) { potato in
                 ///links the items in the list to the detailView for the potato object selected
                 NavigationLink(destination: DetailView(model: potato)){
-                        ExtractedView(potato: potato)
+                        RowView(potato: potato)
                     }
                 ///when an item is deleted send index position of item through fun deleteItems() as var index in the ViewModel file
                 }.onDelete{indices in
@@ -33,7 +33,7 @@ struct MasterView: View {
 }
     ///separate view for the contents in the list
     ///allows fot the objects to be observed and therefore show changes to the items
-    struct ExtractedView: View {
+    struct RowView: View {
         ///@ObservedObject:  property wrapper type that subscribes to an observable object and invalidates a view whenever the observable object changes.
         @ObservedObject var potato: Potato
         var body: some View {

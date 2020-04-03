@@ -8,11 +8,12 @@
 
 import Foundation
 ///@Identifiable: A class of types whose instances hold the value of an entity with stable identity.
-
 class ViewModel: ObservableObject, Identifiable{
     
     ///Place holder variables are used to replace hard coded text in the view files
-    static var newElementTextPlaceHolder = "<new>"
+    static var newElementTextPlaceHolder: String = "<new>"
+    static var newNamePlaceHolder: String = "<Name>"
+    static var newScientificNamePlaceHolder: String = "<Scientific Name>"
     static var imageURLTextFieldPlaceHolder: String = "URL of Image"
     static var familyPlaceHolder: String = "Family:"
     static var weightPlaceHolder: String = "Weight:"
@@ -20,6 +21,7 @@ class ViewModel: ObservableObject, Identifiable{
     static var notesPlaceHolder: String = "Notes:"
     static var notesTextFieldPlaceHolder: String = "Add a note"
     static var imageURLPlaceHolder: String = "Image URL:"
+    static var scientificPlaceHolder: String = "Scientific Name:"
     static var listTitle: String = "Potatos"
     ///class is used to hold the array
     ///by using @published we can look at the new array when a change is made to it
@@ -33,7 +35,8 @@ class ViewModel: ObservableObject, Identifiable{
     append new object to potato array "potatos"
     */
     func addElement(){
-        let potato = Potato(name: "\(ViewModel.newElementTextPlaceHolder)", family: "", weight: "", scienceName: "", nutrition: "", image: "")
+        ///create new instance of object with placeholder text variables and blank properties to be filled in later
+        let potato = Potato(name: "\(ViewModel.newNamePlaceHolder)", family: "", weight: "", scienceName: "\(ViewModel.newScientificNamePlaceHolder)", nutrition: "", image: "")
         potatos.append(potato)
     }
     /**
